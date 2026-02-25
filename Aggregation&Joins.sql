@@ -1,4 +1,5 @@
 -- 🔹 Basic Aggregation Questions
+
 -- 1. What is the total number of orders placed?
 SELECT SUM(total)
 FROM public.orders
