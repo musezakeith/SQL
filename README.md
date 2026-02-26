@@ -1,5 +1,3 @@
-# SQL
-My SQL exercises
 # SQL Portfolio
 
 This repository contains my SQL practice exercises, covering topics such as:
