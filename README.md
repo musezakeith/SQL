@@ -5,7 +5,7 @@ This repository contains my SQL practice exercises, covering topics such as:
 - Aggregations
 - Joins
 - Grouping and filtering
-- Subqueries (coming soon)
+- Subqueries and CTEs
 - Window functions (coming soon)
 
 ## Files
