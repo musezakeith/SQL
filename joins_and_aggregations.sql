@@ -258,21 +258,30 @@ GROUP BY region_name
 ORDER BY perc_total_revenue DESC
 
 -- 26. What is the month-over-month revenue growth?
-
--- (orders ➡️ accounts ➡️ sales_reps ➡️ region)
-
-
-
-
-
-
-
-
-
-
-
-
-
+WITH monthly_revenue AS (
+    SELECT
+        EXTRACT(year FROM occurred_at) AS year,
+        EXTRACT(month FROM occurred_at) AS month,
+        SUM(total_amt_usd) AS total_revenue
+    FROM public.orders
+    GROUP BY 1, 2
+),
+growth AS (
+    SELECT
+        year, month, total_revenue,
+        total_revenue 
+            - LAG(total_revenue) OVER (ORDER BY year, month) AS mom_change,
+        ROUND(
+            (total_revenue 
+                - LAG(total_revenue) OVER (ORDER BY year, month))
+            / NULLIF(LAG(total_revenue) OVER (ORDER BY year, month), 0)
+            * 100, 2
+        ) AS mom_percent
+    FROM monthly_revenue
+)
+SELECT *
+FROM growth
+ORDER BY year, month;
 
 -- 27. Compare the average revenue per order across regions.
 
