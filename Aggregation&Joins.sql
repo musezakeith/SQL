@@ -265,18 +265,6 @@ ORDER BY perc_total_revenue DESC
 -- (orders ➡️ accounts ➡️ sales_reps ➡️ region)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 -- 27. Compare the average revenue per order across regions.
 
 -- (orders ➡️ accounts ➡️ sales_reps ➡️ region)
